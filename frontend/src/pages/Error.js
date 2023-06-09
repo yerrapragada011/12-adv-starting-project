@@ -9,8 +9,8 @@ function ErrorPage() {
   let title = 'An error occured!';
   let message = 'Something went wrong!';
 
-  if ((error.status = 500)) {
-    message = JSON.parse(error.data).message;
+  if (error.status === 500) {
+    message = error.data.message;
   }
 
   if (error.status === 404) {
@@ -20,10 +20,10 @@ function ErrorPage() {
 
   return (
     <>
-    <MainNavigation />
-    <PageContent title={title}>
-      <p>{message}</p>
-    </PageContent>
+      <MainNavigation />
+      <PageContent title={title}>
+        <p>{message}</p>
+      </PageContent>
     </>
   );
 }
